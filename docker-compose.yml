@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  pgsqlokr:
+  pgoberon:
     image: postgres:alpine
     ports:
       - '5432:5432'
-    container_name: 'pgsqlokr'
+    container_name: 'pgoberon'
     restart: always
     volumes:
       - pg-data:/var/lib/postgresql/data
