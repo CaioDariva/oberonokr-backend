@@ -1,6 +1,6 @@
 import { User } from '.prisma/client';
 import { Controller, Post, Body } from '@nestjs/common';
-import { ControllerUseCases } from 'src/helpers/controller-usecase.interface';
+import { ControllerUseCases } from 'src/domains/controller-usecase.interface';
 import { CreateUserService } from './create-user.service';
 import { CreateUserDto } from '../../dto/create-user.dto';
 
