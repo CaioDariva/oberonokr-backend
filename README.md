@@ -1,13 +1,23 @@
-# Autenticação JWT 
+# Autenticação JWT: Dheyson
   Autenticação doc nest
-# Entidade de usuário
-  nest g service user
-  nest g controller user
-  
-  module, service, controller, test
+
+# Entidade OKR: Gustavo
+  - create
+    -service
+    -controller 
+      -test
+  - read
+    - service
+    - controller
+      - test
+  - update
+  - delete
+# Entidade KR: Gustavo / Caio
+  - CRUD
+# Entidade de Department: Caio
+  - CRUD
+# Entidade de usuário: Gustavo
+ - CRUD  
 
 # Validação das propriedades de usuário
-  - Class validator nest 
-
-# Teste
- - Jest
+  - Class validator nest
