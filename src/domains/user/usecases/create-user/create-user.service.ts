@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { ServiceUseCase } from 'src/helpers/service-usecase.interface';
+import { ServiceUseCase } from 'src/domains/service-usecase.interface';
 import { PrismaService } from '../../../../prisma/prisma.service';
 import { CreateUserDto } from '../../dto/create-user.dto';
 import { User } from '../../entity/user.entity';
