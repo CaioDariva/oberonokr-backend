@@ -1,13 +1,19 @@
-import { PrismaService } from '../../../../prisma/prisma.service';
 import { Test, TestingModule } from '@nestjs/testing';
 import { CreateUserService } from './create-user.service';
+import { UserRepositoryInMemmory } from '../../inMemmory/user-inmemmory';
 
 describe('CreateUserService', () => {
   let service: CreateUserService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [CreateUserService, PrismaService],
+      providers: [
+        CreateUserService,
+        {
+          provide: 'UserRepository',
+          useClass: UserRepositoryInMemmory,
+        },
+      ],
     }).compile();
 
     service = module.get<CreateUserService>(CreateUserService);
