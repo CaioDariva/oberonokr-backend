@@ -4,9 +4,10 @@ import { CreateUserController } from './usecases/create-user/create-user.control
 import { CreateUserService } from './usecases/create-user/create-user.service';
 import { UpdateUserService } from './usecases/update-user/update-user.service';
 import { UserRepository } from './repository/user-repository';
+import { UpdateUserController } from './usecases/update-user/update-user.controller';
 
 @Module({
-  controllers: [CreateUserController],
+  controllers: [CreateUserController, UpdateUserController],
   providers: [
     CreateUserService,
     PrismaService,
