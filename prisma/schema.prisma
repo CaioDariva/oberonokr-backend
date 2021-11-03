@@ -10,12 +10,30 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// model Equipe {
+
+// }
+// Model ObjectivesKeyResults {
+
+// }
+
+// model Targets {
+
+// }
+
+// model Keyresults {
+
+// }
+
+// equipe -> metodologia -> Quarter -> okr -> obj -> kr
+
 model User {
-  id       Int      @id @default(autoincrement())
+  id       Int    @id @default(autoincrement())
   name     String
   surname  String
   email    String
   password String
+
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
 }
