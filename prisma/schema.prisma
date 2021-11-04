@@ -10,9 +10,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// model Equipe {
+model Team {
+  id    Int   @id @default(autoincrement())
+  name  String
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+  users User[]
+}
 
-// }
 // Model ObjectivesKeyResults {
 
 // }
@@ -33,7 +38,7 @@ model User {
   surname  String
   email    String
   password String
-
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
+  teams     Team[]
 }
