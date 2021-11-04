@@ -7,6 +7,7 @@ import { CreateUserController } from './domains/user/usecases/create-user/create
 import { UserModule } from './domains/user/user.module';
 
 import { AuthModule } from './auth/auth.module';
+import { PrismaService } from './prisma/prisma.service';
 @Module({
   controllers: [AppController, CreateUserController],
   providers: [AppService, CreateUserService, PrismaService],
