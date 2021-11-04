@@ -17,7 +17,7 @@
 # Entidade de Department: Caio
   - CRUD
 # Entidade de usuário: Gustavo
- - CRUD  
+  - CRUD
 
 # Validação das propriedades de usuário
   - Class validator nest
