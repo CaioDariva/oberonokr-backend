@@ -70,6 +70,6 @@ model Feeling {
   
   createAt   DateTime     @default(now())
   updateAt   DateTime     @updatedAt
-  
+
   keyresults Keyresults[]
 }
