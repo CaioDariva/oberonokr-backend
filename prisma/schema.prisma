@@ -44,6 +44,7 @@ model Keyresults {
   date          DateTime
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
+  user     User[]
 }
 
 // equipe -> metodologia -> Quarter -> okr -> obj -> kr
@@ -57,4 +58,5 @@ model User {
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
   teams     Team[]
+  keyresults Keyresults[]
 }
