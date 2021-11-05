@@ -58,7 +58,6 @@ model Feeling {
   name       String
   createAt   DateTime     @default(now())
   updateAt   DateTime     @updatedAt
+
   keyresults Keyresults[]
 }
-
-// equipe -> metodologia -> Quarter -> okr -> obj -> kr

@@ -14,7 +14,7 @@
   - delete
 # Entidade KR: Gustavo / Caio
   - CRUD
-# Entidade de Department: Caio
+# Entidade de Team: Caio
   - CRUD
 # Entidade de usuário: Gustavo
   - CRUD
