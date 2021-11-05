@@ -1,16 +1,16 @@
 import { PrismaService } from './../../../../prisma/prisma.service';
 import { Test, TestingModule } from '@nestjs/testing';
-import { CreateUserService } from './create-user.service';
+import { FindOneOkrService } from './find-one-okr.service';
 
-describe('CreateUserService', () => {
-  let service: CreateUserService;
+describe('FindOneOkrService', () => {
+  let service: FindOneOkrService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [CreateUserService, PrismaService],
+      providers: [FindOneOkrService, PrismaService],
     }).compile();
 
-    service = module.get<CreateUserService>(CreateUserService);
+    service = module.get<FindOneOkrService>(FindOneOkrService);
   });
 
   it('should be defined', () => {
