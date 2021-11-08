@@ -10,6 +10,8 @@ import { FindOneUserService } from './usecases/find-one-user/find-one-user.servi
 import { FindOneUserController } from './usecases/find-one-user/find-one-user.controller';
 import { DeleteUserService } from './usecases/delete-user/delete-user.service';
 import { DeleteUserController } from './usecases/delete-user/delete-user.controller';
+import { FindUserByEmailService } from './usecases/find-by-email/find-user-by-email.service';
+import { FindUserByEmailController } from './usecases/find-by-email/find-user-by-email.controller';
 
 @Module({
   controllers: [
@@ -18,6 +20,7 @@ import { DeleteUserController } from './usecases/delete-user/delete-user.control
     FindAllUserController,
     FindOneUserController,
     DeleteUserController,
+    FindUserByEmailController,
   ],
   providers: [
     PrismaService,
@@ -26,6 +29,7 @@ import { DeleteUserController } from './usecases/delete-user/delete-user.control
     FindAllUserService,
     FindOneUserService,
     DeleteUserService,
+    FindUserByEmailService,
   ],
   imports: [PrismaService],
 })

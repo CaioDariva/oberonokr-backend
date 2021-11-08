@@ -20,6 +20,7 @@ import { FindOneOkrService } from './domains/okr/usecases/find-one-okr/find-one-
 import { FindOneOkrController } from './domains/okr/usecases/find-one-okr/find-one-okr.controller';
 import { DeleteOkrService } from './domains/okr/usecases/delete-okr/delete-okr.service';
 import { DeleteOkrController } from './domains/okr/usecases/delete-okr/delete-okr.controller';
+import { OkrModule } from './domains/okr/okr.module';
 @Module({
   controllers: [
     AppController,
@@ -41,6 +42,13 @@ import { DeleteOkrController } from './domains/okr/usecases/delete-okr/delete-ok
     FindOneOkrService,
     DeleteOkrService,
   ],
-  imports: [PrismaModule, UserModule, AuthModule, TeamModule, KrModule],
+  imports: [
+    PrismaModule,
+    UserModule,
+    AuthModule,
+    TeamModule,
+    KrModule,
+    OkrModule,
+  ],
 })
 export class AppModule {}
