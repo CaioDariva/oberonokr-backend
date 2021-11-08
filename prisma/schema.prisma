@@ -23,6 +23,8 @@ model User {
   updateAt DateTime @updatedAt
 
   teams    Team[]
+  okrs     Okr[]
+  krs      Keyresults[]
 }
 
 model Team {
@@ -45,7 +47,7 @@ model Okr {
   assignedBy String
 
   krs Keyresults[]
-  users Users[]
+  users User[]
 }
 
 model Keyresults {
