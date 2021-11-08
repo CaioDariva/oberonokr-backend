@@ -10,53 +10,69 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Team {
-  id    Int   @id @default(autoincrement())
-  name  String
+model User {
+  id       Int      @id @default(autoincrement())
+
+  name     String
+  surname  String
+
+  email    String
+  password String
+
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
-  users User[]
+
+  teams    Team[]
 }
 
-// Model ObjectivesKeyResults {
+model Team {
+  id       Int      @id @default(autoincrement())
+  name     String
 
-// }
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
 
-// model Targets {
+  users    User[]
+  
+}
 
-// }
+model Okr {
+  id Int @id @default(autoincrement())
 
-model Feeling {
-  id        Int @id @default(autoincrement())
-  name      String?
-  createAt  DateTime @default(now())
-  updateAt  DateTime @updatedAt
-  keyresults Keyresults[]
+  description String
+
+  assignedAt DateTime @default(now())
+  assignedBy String
+
+  krs Keyresults[]
+  users Users[]
 }
 
 model Keyresults {
   id             Int    @id @default(autoincrement())
   name          String
+  
   description   String
   status        Boolean @default(false)
+  
   feeling          Feeling? @relation(fields: [feelingId], references: [id])
   feelingId        Int?
+
 //  date          DateTime
+  
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
-  user     User[]
+  
+  users     User[]
+  okr      Okr[]
 }
 
-// equipe -> metodologia -> Quarter -> okr -> obj -> kr
+model Feeling {
+  id         Int          @id @default(autoincrement())
+  name       String
+  
+  createAt   DateTime     @default(now())
+  updateAt   DateTime     @updatedAt
 
-model User {
-  id       Int    @id @default(autoincrement())
-  name     String
-  surname  String
-  email    String
-  password String
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
-  teams     Team[]
   keyresults Keyresults[]
 }
