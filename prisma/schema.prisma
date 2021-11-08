@@ -41,7 +41,7 @@ model Keyresults {
   status        Boolean @default(false)
   feeling          Feeling? @relation(fields: [feelingId], references: [id])
   feelingId        Int?
-  date          DateTime
+//  date          DateTime
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
   user     User[]
