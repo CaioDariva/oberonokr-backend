@@ -1,16 +1,16 @@
-import { IsEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 import { Keyresults } from '../entity/kr.entity';
 
 export class CreateKeyresultDto extends Keyresults {
   @IsString()
-  @IsEmpty()
+  @IsNotEmpty()
   name: string;
 
   @IsString()
-  @IsEmpty()
+  @IsNotEmpty()
   description: string;
 
   @IsString()
-  @IsEmpty()
+  @IsNotEmpty()
   date: Date;
 }
