@@ -6,6 +6,7 @@ export class FindUserByEmailService {
   constructor(private readonly prisma: PrismaService) {}
 
   public async execute(email: string) {
-    return this.prisma.user.findUnique({ where: { email } });
+    // const x: Prisma.UserWhereUniqueInput
+    return this.prisma.user.findFirst({ where: { email } });
   }
 }

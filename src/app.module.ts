@@ -1,3 +1,4 @@
+import { FindOneUserService } from './domains/user/usecases/find-one-user/find-one-user.service';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -21,6 +22,8 @@ import { FindOneOkrController } from './domains/okr/usecases/find-one-okr/find-o
 import { DeleteOkrService } from './domains/okr/usecases/delete-okr/delete-okr.service';
 import { DeleteOkrController } from './domains/okr/usecases/delete-okr/delete-okr.controller';
 import { OkrModule } from './domains/okr/okr.module';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from './auth/jwt-auth.guard';
 @Module({
   controllers: [
     AppController,
@@ -41,6 +44,11 @@ import { OkrModule } from './domains/okr/okr.module';
     FindAllOkrService,
     FindOneOkrService,
     DeleteOkrService,
+    FindOneUserService,
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
   ],
   imports: [
     PrismaModule,

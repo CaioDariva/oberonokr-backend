@@ -1,7 +1,7 @@
-import { IsString, IsEmpty } from 'class-validator';
+import { IsString, IsNotEmpty } from 'class-validator';
 import { Team } from '../entity/team.entity';
 export class CreateTeamDto extends Team {
   @IsString()
-  @IsEmpty()
+  @IsNotEmpty()
   name: string;
 }
