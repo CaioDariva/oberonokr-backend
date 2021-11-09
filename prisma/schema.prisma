@@ -46,7 +46,6 @@ model Okr {
   assignedAt DateTime @default(now())
   assignedBy String
 
-  krs Keyresults[]
   users User[]
 }
 
@@ -60,13 +59,12 @@ model Keyresults {
   feeling          Feeling? @relation(fields: [feelingId], references: [id])
   feelingId        Int?
 
-//  date          DateTime
+  date          DateTime
   
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
   
   users     User[]
-  okr      Okr[]
 }
 
 model Feeling {
@@ -77,4 +75,8 @@ model Feeling {
   updateAt   DateTime     @updatedAt
 
   keyresults Keyresults[]
+}
+
+model Teste {
+    id         Int          @id @default(autoincrement())
 }

@@ -1,4 +1,28 @@
 -- CreateTable
+CREATE TABLE `User` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(191) NOT NULL,
+    `surname` VARCHAR(191) NOT NULL,
+    `email` VARCHAR(191) NOT NULL,
+    `password` VARCHAR(191) NOT NULL,
+    `createAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updateAt` DATETIME(3) NOT NULL,
+
+    UNIQUE INDEX `User_email_key`(`email`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Team` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(191) NOT NULL,
+    `createAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updateAt` DATETIME(3) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
 CREATE TABLE `Okr` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `description` VARCHAR(191) NOT NULL,
@@ -33,6 +57,13 @@ CREATE TABLE `Feeling` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
+CREATE TABLE `Teste` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
 CREATE TABLE `_TeamToUser` (
     `A` INTEGER NOT NULL,
     `B` INTEGER NOT NULL,
@@ -42,12 +73,21 @@ CREATE TABLE `_TeamToUser` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `_KeyresultsToOkr` (
+CREATE TABLE `_OkrToUser` (
     `A` INTEGER NOT NULL,
     `B` INTEGER NOT NULL,
 
-    UNIQUE INDEX `_KeyresultsToOkr_AB_unique`(`A`, `B`),
-    INDEX `_KeyresultsToOkr_B_index`(`B`)
+    UNIQUE INDEX `_OkrToUser_AB_unique`(`A`, `B`),
+    INDEX `_OkrToUser_B_index`(`B`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `_KeyresultsToUser` (
+    `A` INTEGER NOT NULL,
+    `B` INTEGER NOT NULL,
+
+    UNIQUE INDEX `_KeyresultsToUser_AB_unique`(`A`, `B`),
+    INDEX `_KeyresultsToUser_B_index`(`B`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
@@ -60,7 +100,13 @@ ALTER TABLE `_TeamToUser` ADD FOREIGN KEY (`A`) REFERENCES `Team`(`id`) ON DELET
 ALTER TABLE `_TeamToUser` ADD FOREIGN KEY (`B`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `_KeyresultsToOkr` ADD FOREIGN KEY (`A`) REFERENCES `Keyresults`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `_OkrToUser` ADD FOREIGN KEY (`A`) REFERENCES `Okr`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `_KeyresultsToOkr` ADD FOREIGN KEY (`B`) REFERENCES `Okr`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `_OkrToUser` ADD FOREIGN KEY (`B`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `_KeyresultsToUser` ADD FOREIGN KEY (`A`) REFERENCES `Keyresults`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `_KeyresultsToUser` ADD FOREIGN KEY (`B`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

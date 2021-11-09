@@ -1,21 +1,21 @@
-import { IsEmail, IsEmpty, IsString, Matches } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, Matches } from 'class-validator';
 import { User } from '../entity/user.entity';
 export class CreateUserDto extends User {
   @IsString()
-  @IsEmpty()
+  @IsNotEmpty()
   name: string;
 
   @IsString()
-  @IsEmpty()
+  @IsNotEmpty()
   surname: string;
 
   @IsEmail()
   @IsString()
-  @IsEmpty()
+  @IsNotEmpty()
   email: string;
 
   @IsString()
-  @IsEmpty({})
+  @IsNotEmpty({})
   @Matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/, {
     message: 'insira uma senha mais segura',
   })
