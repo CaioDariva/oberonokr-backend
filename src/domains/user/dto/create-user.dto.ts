@@ -15,7 +15,7 @@ export class CreateUserDto extends User {
   email: string;
 
   @IsString()
-  @IsNotEmpty({})
+  @IsNotEmpty()
   @Matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/, {
     message: 'insira uma senha mais segura',
   })

@@ -1,6 +1,7 @@
-import { IsString, Length, Matches } from 'class-validator';
+import { IsEmail, IsString, Length, Matches } from 'class-validator';
 
 export class LoginRequestBody {
+  @IsEmail()
   email: string;
 
   @IsString()

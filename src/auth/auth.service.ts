@@ -1,67 +1,48 @@
-import { PrismaService } from './../prisma/prisma.service';
-import { FindUserByEmailService } from '../domains/user/usecases/find-by-email/find-user-by-email.service';
-import { User } from './../domains/user/entity/user.entity';
 import { Injectable } from '@nestjs/common';
+import { FindUserByEmailService } from '../domains/user/usecases/find-by-email/find-user-by-email.service';
+
+// Bcrypt
+import * as bcrypt from 'bcrypt';
+import { UnauthorizedError } from './error/Unauthorized.error';
 import { JwtService } from '@nestjs/jwt';
 import { UserToken } from './model/UserToken';
-import bcrypt from 'bcrypt';
-import { UnauthorizedError } from './error/Unauthorized.error';
-import { UserPayload } from './model/UserPaylod';
+import { UserPayload } from './model/UserPayload';
+import { User } from 'src/domains/user/entity/user.entity';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private readonly jwtService: JwtService,
     private readonly userService: FindUserByEmailService,
-    private readonly prisma: PrismaService,
+    private readonly jwtService: JwtService,
   ) {}
 
-  async Login(email: string, password: string): Promise<UserToken> {
-    const user: User = await this.validateUser(email, password);
-    const lenghtUserDataBase = await (await this.prisma.user.findMany()).length;
+  async login(email: string, senha: string): Promise<UserToken> {
+    const usuario: User = await this.validateUser(email, senha);
 
-    let payload: UserPayload = {
-      id: user.id,
-      email: user.email,
-      username: user.name,
-      superAdmin: false,
+    const payload: UserPayload = {
+      username: usuario.email,
+      sub: usuario.id,
     };
 
-    if (lenghtUserDataBase <= 1) {
-      payload = {
-        id: user.id,
-        email: user.email,
-        username: user.name,
-        superAdmin: true,
-      };
-    } else {
-      payload = {
-        id: user.id,
-        email: user.email,
-        username: user.name,
-        superAdmin: false,
-      };
-    }
-
     return {
-      id: user.id,
-      username: user.name,
       accessToken: this.jwtService.sign(payload),
     };
   }
 
-  private async validateUser(email: string, password: string) {
-    const user: User = await this.userService.execute(email);
+  private async validateUser(email: string, senha: string) {
+    const usuario = await this.userService.execute(email);
 
-    if (user) {
-      const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (usuario) {
+      const isPasswordValid = await bcrypt.compare(senha, usuario.password);
+
       if (isPasswordValid) {
-        return { ...user, password: undefined };
+        return {
+          ...usuario,
+          senha: undefined,
+        };
       }
     }
 
-    throw new UnauthorizedError('Email ou senha são incorretos');
-
-    return;
+    throw new UnauthorizedError('E-mail e/ou senha fornecidos são incorretos.');
   }
 }
