@@ -60,7 +60,7 @@ model Keyresults {
   feeling   Feeling? @relation(fields: [feelingId], references: [id])
   feelingId Int?
 
-  date String 
+  date String
 
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
@@ -77,4 +77,8 @@ model Feeling {
   updateAt DateTime @updatedAt
 
   keyresults Keyresults[]
+}
+
+model Teste {
+  id Int @id @default(autoincrement())
 }
