@@ -5,7 +5,7 @@ export class Keyresults implements Prisma.KeyresultsUncheckedCreateInput {
   name: string;
   description: string;
   status: boolean;
-  date: Date;
+  date: string;
   createAt: Date;
   updateAt: Date;
 }

@@ -1,4 +1,4 @@
-import { UpdateTeamDto } from './../../../team/dto/update-team.dto';
+import { UpdateOkrDto } from './../../dto/update-okr.dto';
 import { UpdateOkrService } from './update-okr.service';
 import { Body, Controller, Param, Patch } from '@nestjs/common';
 
@@ -6,7 +6,7 @@ import { Body, Controller, Param, Patch } from '@nestjs/common';
 export class UpdateOkrController {
   constructor(private readonly service: UpdateOkrService) {}
   @Patch(':id')
-  public async handle(@Param('id') id: string, @Body() request: UpdateTeamDto) {
+  public async handle(@Param('id') id: string, @Body() request: UpdateOkrDto) {
     return await this.service.execute(+id, request);
   }
 }

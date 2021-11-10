@@ -2,11 +2,11 @@ import { Keyresults } from '.prisma/client';
 import { Controller, Get, Param } from '@nestjs/common';
 import { GetKrService } from './get-kr.service';
 
-@Controller('kr/:id')
+@Controller('find-one-kr/:id')
 export class GetKrController {
   constructor(private readonly service: GetKrService) {}
   @Get()
-  findUnique(@Param('id') id: number): Promise<Keyresults> {
-    return this.service.findUnique(+id);
+  public async handle(@Param('id') id: number) {
+    return this.service.execute(+id);
   }
 }

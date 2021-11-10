@@ -5,7 +5,6 @@ import { PrismaService } from 'src/prisma/prisma.service';
 @Injectable()
 export class UpdateTeamService {
   constructor(private readonly prisma: PrismaService) {}
-
   async updateOneTeam(
     teamId: number,
     data: Prisma.TeamUpdateInput,

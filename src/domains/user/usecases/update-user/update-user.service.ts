@@ -6,6 +6,6 @@ import { Injectable } from '@nestjs/common';
 export class UpdateUserService {
   constructor(private readonly prisma: PrismaService) {}
   public async execute(id: number, request: UpdateUserDto) {
-    return await this.prisma.user.update({ where: { id }, data: request });
+    return await this.prisma.user.update({ data: request, where: { id } });
   }
 }

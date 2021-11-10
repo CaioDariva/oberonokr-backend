@@ -11,10 +11,10 @@ datasource db {
 }
 
 model User {
-  id       Int      @id @default(autoincrement())
+  id Int @id @default(autoincrement())
 
-  name     String
-  surname  String
+  name    String
+  surname String
 
   email    String @unique
   password String
@@ -22,20 +22,20 @@ model User {
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
 
-  teams    Team[]
-  okrs     Okr[]
-  krs      Keyresults[]
+  teams Team[]
+  okrs  Okr[]
+  krs   Keyresults[]
 }
 
 model Team {
-  id       Int      @id @default(autoincrement())
-  name     String
+  id   Int    @id @default(autoincrement())
+  name String
 
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
 
-  users    User[]
-  
+  users User[]
+
 }
 
 model Okr {
@@ -46,35 +46,35 @@ model Okr {
   assignedAt DateTime @default(now())
   assignedBy String
 
-  krs Keyresults[]
+  krs   Keyresults[]
   users User[]
 }
 
 model Keyresults {
-  id             Int    @id @default(autoincrement())
-  name          String
-  
-  description   String
-  status        Boolean @default(false)
-  
-  feeling          Feeling? @relation(fields: [feelingId], references: [id])
-  feelingId        Int?
+  id   Int    @id @default(autoincrement())
+  name String
 
-//  date          DateTime
-  
+  description String
+  status      Boolean @default(false)
+
+  feeling   Feeling? @relation(fields: [feelingId], references: [id])
+  feelingId Int?
+
+  date String 
+
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
-  
-  users     User[]
-  okr      Okr[]
+
+  users User[]
+  okr   Okr[]
 }
 
 model Feeling {
-  id         Int          @id @default(autoincrement())
-  name       String
-  
-  createAt   DateTime     @default(now())
-  updateAt   DateTime     @updatedAt
+  id   Int    @id @default(autoincrement())
+  name String
+
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
 
   keyresults Keyresults[]
 }

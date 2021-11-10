@@ -1,6 +1,7 @@
 import { PrismaService } from './../../../../prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
 import { CreateOkrDto } from '../../dto/create-okr.dto';
+import { Prisma } from '.prisma/client';
 
 @Injectable()
 export class CreateOkrService {

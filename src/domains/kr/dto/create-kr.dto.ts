@@ -11,5 +11,5 @@ export class CreateKeyresultDto extends Keyresults {
 
   @IsString()
   @IsNotEmpty()
-  date: Date;
+  date: string;
 }
