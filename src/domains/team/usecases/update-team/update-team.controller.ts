@@ -1,4 +1,3 @@
-import { Team } from '.prisma/client';
 import { Body, Controller, Param, ParseIntPipe, Patch } from '@nestjs/common';
 import { UpdateTeamDto } from '../../dto/update-team.dto';
 import { UpdateTeamService } from './update-team.service';
@@ -7,10 +6,10 @@ import { UpdateTeamService } from './update-team.service';
 export class UpdateTeamController {
   constructor(private readonly service: UpdateTeamService) {}
   @Patch()
-  async update(
+  async handle(
     @Body() updateTeam: UpdateTeamDto,
     @Param('id', ParseIntPipe) id: number,
-  ): Promise<Team> {
-    return this.service.updateOneTeam(id, updateTeam);
+  ) {
+    return this.service.execute(id, updateTeam);
   }
 }

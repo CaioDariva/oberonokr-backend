@@ -24,7 +24,6 @@ import { DeleteOkrController } from './domains/okr/usecases/delete-okr/delete-ok
 import { OkrModule } from './domains/okr/okr.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
-import { CreateFeelingService } from './domains/feelings/create-feeling/create-feeling.service';
 import { CreateFeelingService } from './domains/feelings/usecases/create-feeling/create-feeling.service';
 import { CreateFeelingController } from './domains/feelings/usecases/create-feeling/create-feeling.controller';
 import { FindAllFeelingService } from './domains/feelings/usecases/find-all-feeling/find-all-feeling.service';

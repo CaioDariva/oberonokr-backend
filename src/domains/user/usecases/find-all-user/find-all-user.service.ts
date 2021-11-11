@@ -1,12 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { ServiceUseCase } from 'src/domains/service-usecase.interface';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { User } from '../../entity/user.entity';
 
 @Injectable()
-export class FindAllUserService implements ServiceUseCase<never, User[]> {
+export class FindAllUserService {
   constructor(private readonly prisma: PrismaService) {}
-  public async execute(): Promise<User[]> {
+  public async execute() {
     return await this.prisma.user.findMany();
   }
 }

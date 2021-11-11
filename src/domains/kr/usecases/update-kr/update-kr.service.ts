@@ -1,4 +1,4 @@
-import { Prisma, Keyresults } from '.prisma/client';
+import { Prisma } from '.prisma/client';
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 
@@ -6,14 +6,11 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class UpdateKrService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async updateOneKr(
-    krId: number,
-    data: Prisma.KeyresultsUpdateInput,
-  ): Promise<Keyresults> {
+  async updateOneKr(id: number, data: Prisma.KeyresultsUpdateInput) {
     return this.prisma.keyresults.update({
       data,
       where: {
-        id: krId,
+        id: id,
       },
     });
   }

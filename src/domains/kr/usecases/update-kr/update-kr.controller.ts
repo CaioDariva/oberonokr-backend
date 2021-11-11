@@ -1,4 +1,3 @@
-import { Keyresults } from '.prisma/client';
 import { Body, Controller, Param, ParseIntPipe, Patch } from '@nestjs/common';
 import { UpdateKeyresultDto } from '../../dto/update-kr.dto';
 import { UpdateKrService } from './update-kr.service';
@@ -10,7 +9,7 @@ export class UpdateKrController {
   async update(
     @Body() updateKr: UpdateKeyresultDto,
     @Param('id', ParseIntPipe) id: number,
-  ): Promise<Keyresults> {
-    return this.service.updateOneKr(id, updateKr);
+  ) {
+    return this.service.updateOneKr(+id, updateKr);
   }
 }

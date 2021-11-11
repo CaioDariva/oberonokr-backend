@@ -1,4 +1,3 @@
-import { Team } from '.prisma/client';
 import { Controller, Get } from '@nestjs/common';
 import { AllTeamsService } from './all-teams.service';
 
@@ -6,7 +5,7 @@ import { AllTeamsService } from './all-teams.service';
 export class AllTeamsController {
   constructor(private readonly service: AllTeamsService) {}
   @Get()
-  async findMany(): Promise<Team[]> {
-    return this.service.getAll();
+  async handle() {
+    return this.service.execute();
   }
 }
