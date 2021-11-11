@@ -1,4 +1,3 @@
-import { Keyresults } from '.prisma/client';
 import { Controller, Get, Param } from '@nestjs/common';
 import { GetKrService } from './get-kr.service';
 

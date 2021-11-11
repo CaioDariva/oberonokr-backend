@@ -1,23 +1,9 @@
-# Autenticação JWT: Dheyson
-  Autenticação doc nest
-
+# Feelings
+ - [ ] Quando o usuário for atualizar o kr, um feeling podera ser incluido
 # Entidade OKR: Gustavo
-  - create
-    -service
-    -controller 
-      -test
-  - read
-    - service
-    - controller
-      - test
-  - update
-  - delete
-# Entidade KR: Gustavo / Caio
-  - CRUD
+ - [ ] mudar a relação de okr para  kr que se encontra de muitos para muitos
 # Entidade de Team: Caio
-  - CRUD
+  - [ ] quando o usuáio criar um time, automaticamente o mesmo será atribuido a esse mesmo time
+  - [ ] listar os usuários do time
 # Entidade de usuário: Gustavo
-  - CRUD
-
-# Validação das propriedades de usuário
-  - Class validator nest
+  - [ ] listar todas as relaçoes que o usuário tem em sua tabela 

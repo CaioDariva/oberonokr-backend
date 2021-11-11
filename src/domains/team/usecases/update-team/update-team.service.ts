@@ -1,18 +1,15 @@
-import { Prisma, Team } from '.prisma/client';
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { UpdateTeamDto } from '../../dto/update-team.dto';
 
 @Injectable()
 export class UpdateTeamService {
   constructor(private readonly prisma: PrismaService) {}
-  async updateOneTeam(
-    teamId: number,
-    data: Prisma.TeamUpdateInput,
-  ): Promise<Team> {
+  async execute(id: number, data: UpdateTeamDto) {
     return this.prisma.team.update({
       data,
       where: {
-        id: teamId,
+        id: id,
       },
     });
   }
