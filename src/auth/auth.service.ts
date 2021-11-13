@@ -17,11 +17,11 @@ export class AuthService {
   ) {}
 
   async login(email: string, senha: string): Promise<UserToken> {
-    const usuario: User = await this.validateUser(email, senha);
+    const user: User = await this.validateUser(email, senha);
 
     const payload: UserPayload = {
-      username: usuario.email,
-      sub: usuario.id,
+      username: user.email,
+      sub: user.id,
     };
 
     return {

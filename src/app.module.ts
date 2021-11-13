@@ -60,10 +60,10 @@ import { DeleteFeelingController } from './domains/feelings/usecases/delete-feel
     FindOneOkrService,
     DeleteOkrService,
     FindOneUserService,
-    {
-      provide: APP_GUARD,
-      useClass: JwtAuthGuard,
-    },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: JwtAuthGuard,
+    // },
     CreateFeelingService,
     FindAllFeelingService,
     FindOneFeelingService,
