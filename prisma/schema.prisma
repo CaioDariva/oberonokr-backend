@@ -22,20 +22,31 @@ model User {
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
 
-  teams Team[]
-  okrs  Okr[]
-  krs   Keyresults[]
+  Teams UserInTeam[]
+
+  okrs  Okr? @relation(fields: [OkrId], references: [id])
+  OkrId Int?
+
+  Keyresults   Keyresults? @relation(fields: [keyresultsId], references: [id])
+  keyresultsId Int?
 }
 
 model Team {
-  id   Int    @id @default(autoincrement())
-  name String
+  id       Int            @id @default(autoincrement())
+  name     String
+  Users     UserInTeam[]
+  createAt DateTime       @default(now())
+  updateAt DateTime       @updatedAt
+}
 
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+model UserInTeam {
+  Team   Team? @relation(fields: [TeamId], references: [id])
+  TeamId Int
 
-  users User[]
+  User   User? @relation(fields: [UserId], references: [id])
+  UserId Int
 
+  @@id([TeamId, UserId])
 }
 
 model Okr {

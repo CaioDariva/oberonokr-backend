@@ -1,8 +1,9 @@
 import { Prisma } from '.prisma/client';
 
 export class Team implements Prisma.TeamUncheckedCreateInput {
-  id: number;
+  id?: number;
   name: string;
-  createAt: Date;
-  updateAt: Date;
+  createAt?: string | Date;
+  updateAt?: string | Date;
+  User?: Prisma.UsersInTeamsUncheckedCreateNestedManyWithoutTeamsInput;
 }
