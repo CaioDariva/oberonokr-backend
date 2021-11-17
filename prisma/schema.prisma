@@ -32,21 +32,21 @@ model User {
 }
 
 model Team {
-  id       Int            @id @default(autoincrement())
+  id       Int          @id @default(autoincrement())
   name     String
-  Users     UserInTeam[]
-  createAt DateTime       @default(now())
-  updateAt DateTime       @updatedAt
+  Users    UserInTeam[]
+  createAt DateTime     @default(now())
+  updateAt DateTime     @updatedAt
 }
 
 model UserInTeam {
+  id Int @id @default(autoincrement())
+
   Team   Team? @relation(fields: [TeamId], references: [id])
   TeamId Int
 
   User   User? @relation(fields: [UserId], references: [id])
   UserId Int
-
-  @@id([TeamId, UserId])
 }
 
 model Okr {

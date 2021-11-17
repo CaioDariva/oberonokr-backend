@@ -6,7 +6,7 @@ import { Team } from '../../entity/team.entity';
 @Injectable()
 export class CreateTeamServices {
   constructor(private readonly prisma: PrismaService) {}
-  public async execute(request: CreateTeamDto): Promise<Team> {
+  public async execute(request: CreateTeamDto) {
     return await this.prisma.team.create({ data: request });
   }
 }
