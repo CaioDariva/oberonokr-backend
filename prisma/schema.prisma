@@ -31,7 +31,7 @@ model Team {
   id   Int    @id @default(autoincrement())
   name String
 
-  Users User[]
+  users User[]
 
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt

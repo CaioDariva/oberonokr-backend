@@ -5,20 +5,18 @@ import { UpdateTeamDto } from '../../dto/update-team.dto';
 @Injectable()
 export class UpdateTeamService {
   constructor(private readonly prisma: PrismaService) {}
-  async execute(id: number, { Users, ...request }: UpdateTeamDto) {
+  async execute(id: number, request: UpdateTeamDto) {
+    const users = request.users?.map((user) => ({
+      id: user,
+    }));
     return this.prisma.team.update({
-      where: { id },
       data: {
         ...request,
-        Users: {
-          connect: {
-            id: Users,
-          },
+        users: {
+          connect: users,
         },
       },
-      include: {
-        Users: true,
-      },
+      where: { id },
     });
   }
 }
