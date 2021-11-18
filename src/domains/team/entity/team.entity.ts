@@ -5,5 +5,4 @@ export class Team implements Prisma.TeamUncheckedCreateInput {
   name: string;
   createAt?: string | Date;
   updateAt?: string | Date;
-  Users?: Prisma.UserUncheckedCreateNestedManyWithoutTeamInput;
 }
