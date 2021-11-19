@@ -1,9 +1,12 @@
-import { IsString, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsArray } from 'class-validator';
+
 export class CreateTeamDto {
   @IsString()
   @IsNotEmpty()
   name: string;
 
+  @IsArray()
   @IsOptional()
-  users: number[];
+  userId?: number[];
+
 }
