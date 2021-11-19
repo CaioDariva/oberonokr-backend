@@ -10,8 +10,6 @@ import { DeleteTeamController } from './usecases/delete-team/delete-team.control
 import { DeleteTeamService } from './usecases/delete-team/delete-team.service';
 import { UpdateTeamController } from './usecases/update-team/update-team.controller';
 import { CreateTeamServices } from './usecases/create-team/create-team.service';
-import { UsersInTeamService } from './usecases/users-in-team/users-in-team.service';
-import { UsersInTeamController } from './usecases/users-in-team/users-in-team.controller';
 
 @Module({
   controllers: [
@@ -20,7 +18,6 @@ import { UsersInTeamController } from './usecases/users-in-team/users-in-team.co
     AllTeamsController,
     DeleteTeamController,
     UpdateTeamController,
-    UsersInTeamController,
   ],
   providers: [
     CreateTeamServices,
@@ -29,7 +26,6 @@ import { UsersInTeamController } from './usecases/users-in-team/users-in-team.co
     AllTeamsService,
     UpdateTeamService,
     DeleteTeamService,
-    UsersInTeamService,
   ],
   imports: [PrismaService],
 })

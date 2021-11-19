@@ -7,6 +7,6 @@ export class UpdateTeamController {
   constructor(private readonly service: UpdateTeamService) {}
   @Patch()
   async handle(@Body() request: UpdateTeamDto, @Param('id') id: number) {
-    return this.service.execute(id, request);
+    return this.service.execute(+id, request);
   }
 }
