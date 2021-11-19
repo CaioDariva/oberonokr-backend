@@ -5,6 +5,6 @@ export class Okr implements Prisma.ObjectiveUncheckedCreateInput {
   description: string;
   assignedAt?: string | Date;
   assignedBy: string;
-  UserId?: number;
+  userId?: number;
   krs?: Prisma.KeyresultsUncheckedCreateNestedManyWithoutOkrInput;
 }

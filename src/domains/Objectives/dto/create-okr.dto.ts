@@ -1,7 +1,6 @@
-import { IsString, IsNotEmpty } from 'class-validator';
-import { Okr } from '../entity/okr.entity';
+import { IsString, IsNotEmpty, IsNumber, IsOptional } from 'class-validator';
 
-export class CreateOkrDto extends Okr {
+export class CreateOkrDto {
   @IsString()
   @IsNotEmpty()
   description: string;
@@ -9,4 +8,8 @@ export class CreateOkrDto extends Okr {
   @IsString()
   @IsNotEmpty()
   assignedBy: string;
+
+  @IsNumber()
+  @IsOptional()
+  userId?: number;
 }

@@ -47,8 +47,8 @@ model Objective {
 
   krs Keyresults[]
 
-  User   User? @relation(fields: [UserId], references: [id])
-  UserId Int?
+  user   User? @relation(fields: [userId], references: [id])
+  userId Int?
 }
 
 model Keyresults {
@@ -66,8 +66,8 @@ model Keyresults {
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
 
-  User   User? @relation(fields: [UserId], references: [id])
-  UserId Int?
+  user   User? @relation(fields: [userId], references: [id])
+  userId Int?
 
   Okr   Objective? @relation(fields: [OkrId], references: [id])
   OkrId Int?
