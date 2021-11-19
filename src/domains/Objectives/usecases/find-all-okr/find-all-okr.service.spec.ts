@@ -1,4 +1,4 @@
-import { PrismaService } from './../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../prisma/prisma.service';
 import { Test, TestingModule } from '@nestjs/testing';
 import { FindAllOkrService } from './find-all-okr.service';
 

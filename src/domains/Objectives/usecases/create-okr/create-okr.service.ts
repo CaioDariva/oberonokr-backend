@@ -1,4 +1,4 @@
-import { PrismaService } from './../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
 import { CreateOkrDto } from '../../dto/create-okr.dto';
 
@@ -6,6 +6,6 @@ import { CreateOkrDto } from '../../dto/create-okr.dto';
 export class CreateOkrService {
   constructor(private readonly prisma: PrismaService) {}
   public async execute(request: CreateOkrDto) {
-    return await this.prisma.okr.create({ data: request });
+    return await this.prisma.objective.create({ data: request });
   }
 }

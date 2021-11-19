@@ -9,14 +9,14 @@ export class UpdateTeamService {
     userId.forEach(async (value) => {
       await this.prisma.team.update({
         where: { id },
-        data: { ...rest, Users: { connect: { id: value } } },
+        data: { ...rest, users: { connect: { id: value } } },
       });
     });
 
     return await this.prisma.team.findUnique({
       where: { id },
       include: {
-        Users: { select: { id: true, name: true, surname: true, email: true } },
+        users: { select: { id: true, name: true, surname: true, email: true } },
       },
     });
   }

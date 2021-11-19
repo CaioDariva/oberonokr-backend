@@ -1,4 +1,4 @@
-import { UpdateOkrDto } from './../../dto/update-okr.dto';
+import { UpdateOkrDto } from '../../dto/update-okr.dto';
 import { UpdateOkrService } from './update-okr.service';
 import { Body, Controller, Param, Patch } from '@nestjs/common';
 

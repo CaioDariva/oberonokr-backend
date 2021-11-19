@@ -8,5 +8,4 @@ export class CreateTeamDto {
   @IsArray()
   @IsOptional()
   userId?: number[];
-
 }

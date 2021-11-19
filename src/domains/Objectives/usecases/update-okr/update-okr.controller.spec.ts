@@ -1,4 +1,4 @@
-import { PrismaService } from './../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../prisma/prisma.service';
 import { Test, TestingModule } from '@nestjs/testing';
 import { UpdateOkrController } from './update-okr.controller';
 import { UpdateOkrService } from './update-okr.service';

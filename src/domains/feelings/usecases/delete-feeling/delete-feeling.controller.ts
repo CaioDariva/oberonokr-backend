@@ -1,5 +1,5 @@
 import { Controller, Delete, Param } from '@nestjs/common';
-import { DeleteOkrService } from 'src/domains/okr/usecases/delete-okr/delete-okr.service';
+import { DeleteOkrService } from 'src/domains/Objectives/usecases/delete-okr/delete-okr.service';
 
 @Controller('delete-feeling')
 export class DeleteFeelingController {

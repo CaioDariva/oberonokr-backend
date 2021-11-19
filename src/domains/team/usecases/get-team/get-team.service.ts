@@ -8,7 +8,7 @@ export class GetTeamService {
     return await this.prisma.team.findUnique({
       where: { id },
       include: {
-        Users: { select: { id: true, name: true, surname: true, email: true } },
+        users: { select: { id: true, name: true, surname: true, email: true } },
       },
     });
   }

@@ -23,7 +23,7 @@ CREATE TABLE `Team` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Okr` (
+CREATE TABLE `Objective` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `description` VARCHAR(191) NOT NULL,
     `assignedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
@@ -69,7 +69,7 @@ CREATE TABLE `_TeamToUser` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
-ALTER TABLE `Okr` ADD CONSTRAINT `Okr_UserId_fkey` FOREIGN KEY (`UserId`) REFERENCES `User`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `Objective` ADD CONSTRAINT `Objective_UserId_fkey` FOREIGN KEY (`UserId`) REFERENCES `User`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `Keyresults` ADD CONSTRAINT `Keyresults_feelingId_fkey` FOREIGN KEY (`feelingId`) REFERENCES `Feeling`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
@@ -78,7 +78,7 @@ ALTER TABLE `Keyresults` ADD CONSTRAINT `Keyresults_feelingId_fkey` FOREIGN KEY 
 ALTER TABLE `Keyresults` ADD CONSTRAINT `Keyresults_UserId_fkey` FOREIGN KEY (`UserId`) REFERENCES `User`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Keyresults` ADD CONSTRAINT `Keyresults_OkrId_fkey` FOREIGN KEY (`OkrId`) REFERENCES `Okr`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `Keyresults` ADD CONSTRAINT `Keyresults_OkrId_fkey` FOREIGN KEY (`OkrId`) REFERENCES `Objective`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `_TeamToUser` ADD FOREIGN KEY (`A`) REFERENCES `Team`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

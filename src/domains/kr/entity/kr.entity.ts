@@ -1,11 +1,14 @@
 import { Prisma } from '.prisma/client';
 
 export class Keyresults implements Prisma.KeyresultsUncheckedCreateInput {
-  id: number;
+  id?: number;
   name: string;
   description: string;
-  status: boolean;
+  status?: boolean;
+  feelingId?: number;
   date: string;
-  createAt: Date;
-  updateAt: Date;
+  createAt?: string | Date;
+  updateAt?: string | Date;
+  UserId?: number;
+  OkrId?: number;
 }
