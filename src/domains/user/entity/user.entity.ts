@@ -6,9 +6,9 @@ export class User implements Prisma.UserUncheckedCreateInput {
   surname: string;
   email: string;
   password: string;
+  cellphone: string;
   createAt?: string | Date;
   updateAt?: string | Date;
-  TeamId?: number;
-  OkrId?: number;
-  keyresultsId?: number;
+  Okrs?: Prisma.ObjectiveUncheckedCreateNestedManyWithoutUserInput;
+  KeyResults?: Prisma.KeyresultsUncheckedCreateNestedManyWithoutUserInput;
 }

@@ -5,6 +5,6 @@ import { Injectable } from '@nestjs/common';
 export class FindAllOkrService {
   constructor(private readonly prisma: PrismaService) {}
   public async execute() {
-    return this.prisma.objective.findMany();
+    return this.prisma.objective.findMany({ include: { krs: true } });
   }
 }

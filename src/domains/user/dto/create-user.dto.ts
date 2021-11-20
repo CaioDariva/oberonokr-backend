@@ -27,4 +27,8 @@ export class CreateUserDto extends User {
     message: 'insira uma senha mais segura',
   })
   password: string;
+
+  @IsString()
+  @IsNotEmpty()
+  cellphone: string;
 }
