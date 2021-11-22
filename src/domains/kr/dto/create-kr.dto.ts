@@ -1,6 +1,5 @@
-import { IsNotEmpty, IsString } from 'class-validator';
-import { Keyresults } from '../entity/kr.entity';
-export class CreateKeyresultDto extends Keyresults {
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+export class CreateKeyresultDto {
   @IsString()
   @IsNotEmpty()
   name: string;
@@ -12,4 +11,16 @@ export class CreateKeyresultDto extends Keyresults {
   @IsString()
   @IsNotEmpty()
   date: string;
+
+  @IsNumber()
+  @IsOptional()
+  userId?: number;
+
+  @IsNumber()
+  @IsOptional()
+  feelingId?: number;
+
+  @IsNumber()
+  @IsOptional()
+  okrId?: number;
 }

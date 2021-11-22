@@ -10,5 +10,5 @@ export class User implements Prisma.UserUncheckedCreateInput {
   createAt?: string | Date;
   updateAt?: string | Date;
   Okrs?: Prisma.ObjectiveUncheckedCreateNestedManyWithoutUserInput;
-  KeyResults?: Prisma.KeyresultsUncheckedCreateNestedManyWithoutUserInput;
+  keyResults?: Prisma.KeyresultsUncheckedCreateNestedManyWithoutUserInput;
 }

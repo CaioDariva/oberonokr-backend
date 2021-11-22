@@ -1,7 +1,6 @@
 import { IsNotEmpty, IsString } from 'class-validator';
-import { Feeling } from '../entity/feelings.entity';
 
-export class CreateFeelingDto extends Feeling {
+export class CreateFeelingDto {
   @IsString()
   @IsNotEmpty()
   name: string;
