@@ -12,6 +12,6 @@ export class UpdateKrController {
     @Param('id', ParseIntPipe) id: string,
     @Body() updateKr: UpdateKeyresultDto,
   ) {
-    return this.service.updateOneKr(+id, updateKr);
+    return await this.service.updateOneKr(+id, updateKr);
   }
 }
