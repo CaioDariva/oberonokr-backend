@@ -8,9 +8,9 @@ import { UpdateKrService } from './update-kr.service';
 export class UpdateKrController {
   constructor(private readonly service: UpdateKrService) {}
   @Patch()
-  async update(
+  public async update(
+    @Param('id', ParseIntPipe) id: string,
     @Body() updateKr: UpdateKeyresultDto,
-    @Param('id', ParseIntPipe) id: number,
   ) {
     return this.service.updateOneKr(+id, updateKr);
   }

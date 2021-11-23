@@ -32,6 +32,6 @@ async function bootstrap() {
   SwaggerModule.setup('documentation', app, document);
 
   app.useGlobalInterceptors(new UnauthorizedInterceptor());
-  await app.listen(3001);
+  await app.listen(process.env.port || 3001);
 }
 bootstrap();

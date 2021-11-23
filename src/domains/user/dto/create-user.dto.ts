@@ -9,6 +9,8 @@ import {
 } from 'class-validator';
 import { User } from '../entity/user.entity';
 export class CreateUserDto extends User {
+import { IsEmail, IsNotEmpty, IsString, Matches } from 'class-validator';
+export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty({

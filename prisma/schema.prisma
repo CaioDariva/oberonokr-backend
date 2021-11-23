@@ -26,7 +26,7 @@ model User {
 
   Teams      Team[]
   Okrs       Objective[]
-  KeyResults Keyresults[]
+  keyResults Keyresults[]
 }
 
 model Team {
@@ -71,8 +71,8 @@ model Keyresults {
   user   User? @relation(fields: [userId], references: [id])
   userId Int?
 
-  Okr   Objective? @relation(fields: [OkrId], references: [id])
-  OkrId Int?
+  okr   Objective? @relation(fields: [okrId], references: [id])
+  okrId Int?
 
 }
 
@@ -82,5 +82,5 @@ model Feeling {
 
   createAt   DateTime     @default(now())
   updateAt   DateTime     @updatedAt
-  Keyresults Keyresults[]
+  keyresults Keyresults[]
 }
