@@ -1,7 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Keyresults } from '../entity/kr.entity';
-export class CreateKeyresultDto extends Keyresults {
-
 import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 export class CreateKeyresultDto {
   @IsString()
