@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Feeling } from 'src/domains/feelings/entity/feelings.entity';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { UpdateKeyresultDto } from '../../dto/update-kr.dto';
 
@@ -10,13 +11,13 @@ export class UpdateKrService {
     id: number,
     { userId, feelingId, okrId, ...rest }: UpdateKeyresultDto,
   ) {
-    return this.prisma.keyresults.update({
+    return await this.prisma.keyresults.update({
       where: { id },
       data: {
-        ...rest,
-        feeling: { connect: { id: feelingId } },
         user: { connect: { id: userId } },
+        feeling: { connect: { id: feelingId } },
         okr: { connect: { id: okrId } },
+        ...rest,
       },
     });
   }

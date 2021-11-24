@@ -1,8 +1,10 @@
+import { ApiTags } from '@nestjs/swagger';
 import { Body, Controller, Post } from '@nestjs/common';
 import { CreateFeelingDto } from '../../dto/create.feeling.dto';
 import { CreateFeelingService } from './create-feeling.service';
 
 @Controller('create-feeling')
+@ApiTags('Felings')
 export class CreateFeelingController {
   constructor(private readonly service: CreateFeelingService) {}
   @Post()
