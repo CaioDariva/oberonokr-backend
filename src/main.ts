@@ -15,9 +15,10 @@ async function bootstrap() {
     }),
   );
   const config = new DocumentBuilder()
-  .setTitle('Documentação Oberon Sistema de Okr"s" - Grupo 2')
+    .setTitle('Documentação Oberon Sistema de Okr"s" - Grupo 2')
     .setDescription(
-      'O Oberon Sistema de Okr"s" foi desenvolvido para ser simples e eficiente no acompanhamento de evolução de metas para alcançar um objetivo maior.')
+      'O Oberon Sistema de Okr"s" foi desenvolvido para ser simples e eficiente no acompanhamento de evolução de metas para alcançar um objetivo maior.',
+    )
     .setVersion('0.0.1')
     .addTag('Felings')
     .addTag('Kr')
@@ -32,6 +33,6 @@ async function bootstrap() {
   SwaggerModule.setup('documentation', app, document);
 
   app.useGlobalInterceptors(new UnauthorizedInterceptor());
-  await app.listen(process.env.port || 3001);
+  await app.listen(process.env.PORT || 3001);
 }
 bootstrap();
