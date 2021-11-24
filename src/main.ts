@@ -1,19 +1,11 @@
-import { ValidationPipe } from '@nestjs/common';
+//import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import { UnauthorizedInterceptor } from './auth/interceptors/authorized.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
 
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true,
-      forbidNonWhitelisted: true,
-      transform: true,
-    }),
-  );
   const config = new DocumentBuilder()
     .setTitle('Documentação Oberon Sistema de Okr"s" - Grupo 2')
     .setDescription(
@@ -32,7 +24,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('documentation', app, document);
 
-  app.useGlobalInterceptors(new UnauthorizedInterceptor());
-  await app.listen(process.env.PORT || 3001);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
