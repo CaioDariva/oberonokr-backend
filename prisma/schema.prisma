@@ -64,7 +64,8 @@ model Keyresults {
   feeling   Feeling? @relation(fields: [feelingId], references: [id])
   feelingId Int?
 
-  date String
+  startEnd String
+  deadLine String
 
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
