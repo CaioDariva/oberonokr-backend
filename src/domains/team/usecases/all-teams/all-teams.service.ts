@@ -5,6 +5,10 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class AllTeamsService {
   constructor(private prisma: PrismaService) {}
   async execute() {
-    return this.prisma.team.findMany();
+    return this.prisma.team.findMany({
+      include: {
+        users: { select: { id: true, name: true, surname: true, email: true } },
+      },
+    });
   }
 }

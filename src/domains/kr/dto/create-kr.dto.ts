@@ -23,15 +23,19 @@ export class CreateKeyresultDto {
     example: 'Paulo Salvatore',
     description: `O nome será utilizado para qualquer coisa (Perfil, Home Page, etc) que precise exibir informações da pessoa conectada.`,
   })
-  date: string;
+  deadLine: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty({
+    example: 'Paulo Salvatore',
+    description: `O nome será utilizado para qualquer coisa (Perfil, Home Page, etc) que precise exibir informações da pessoa conectada.`,
+  })
+  startEnd: string;
 
   @IsNumber()
   @IsOptional()
   userId?: number;
-
-  @IsNumber()
-  @IsOptional()
-  feelingId?: number;
 
   @IsNumber()
   @IsOptional()

@@ -24,16 +24,7 @@ import { DeleteOkrController } from './domains/Objectives/usecases/delete-okr/de
 import { OkrModule } from './domains/Objectives/okr.module';
 // import { APP_GUARD } from '@nestjs/core';
 // import { JwtAuthGuard } from './auth/jwt-auth.guard';
-import { CreateFeelingService } from './domains/feelings/usecases/create-feeling/create-feeling.service';
-import { CreateFeelingController } from './domains/feelings/usecases/create-feeling/create-feeling.controller';
-import { FindAllFeelingService } from './domains/feelings/usecases/find-all-feeling/find-all-feeling.service';
-import { FindAllFeelingController } from './domains/feelings/usecases/find-all-feeling/find-all-feeling.controller';
-import { FindOneFeelingService } from './domains/feelings/usecases/find-one-feeling/find-one-feeling.service';
-import { FindOneFeelingController } from './domains/feelings/usecases/find-one-feeling/find-one-feeling.controller';
-import { UpdateFeelingController } from './domains/feelings/usecases/update-feeling/update-feeling.controller';
-import { UpdateFeelingService } from './domains/feelings/usecases/update-feeling/update-feeling.service';
-import { DeleteFeelingService } from './domains/feelings/usecases/delete-feeling/delete-feeling.service';
-import { DeleteFeelingController } from './domains/feelings/usecases/delete-feeling/delete-feeling.controller';
+
 @Module({
   controllers: [
     AppController,
@@ -43,11 +34,6 @@ import { DeleteFeelingController } from './domains/feelings/usecases/delete-feel
     FindAllOkrController,
     FindOneOkrController,
     DeleteOkrController,
-    CreateFeelingController,
-    FindAllFeelingController,
-    FindOneFeelingController,
-    UpdateFeelingController,
-    DeleteFeelingController,
   ],
   providers: [
     AppService,
@@ -64,11 +50,6 @@ import { DeleteFeelingController } from './domains/feelings/usecases/delete-feel
     //   provide: APP_GUARD,
     //   useClass: JwtAuthGuard,
     // },
-    CreateFeelingService,
-    FindAllFeelingService,
-    FindOneFeelingService,
-    UpdateFeelingService,
-    DeleteFeelingService,
   ],
   imports: [
     PrismaModule,

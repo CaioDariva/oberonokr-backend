@@ -59,10 +59,6 @@ model Keyresults {
   name String
 
   description String
-  status      Boolean @default(false)
-
-  feeling   Feeling? @relation(fields: [feelingId], references: [id])
-  feelingId Int?
 
   startEnd String
   deadLine String
@@ -75,14 +71,5 @@ model Keyresults {
 
   okr   Objective? @relation(fields: [okrId], references: [id])
   okrId Int?
-
-}
-
-model Feeling {
-  id   Int    @id @default(autoincrement())
-  name String
-
-  createAt   DateTime     @default(now())
-  updateAt   DateTime     @updatedAt
-  keyresults Keyresults[]
+  
 }
